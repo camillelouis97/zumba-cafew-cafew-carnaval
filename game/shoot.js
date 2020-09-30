@@ -63,6 +63,8 @@ function player_collision()
 
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
+    if ( x < 0 )
+        player1.graphic.position.x -= x;
     if ( y < 0 )
         player1.graphic.position.y -= y;
     if ( y > HEIGHT )
@@ -78,7 +80,7 @@ function player_falling()
     var x = player1.graphic.position.x | 0;
     var y = player1.graphic.position.y | 0;
     var length = noGround.length;
-    var element = null;
+    var element = new Array();
 
     for (var i = 0; i < length; i++) {
         element = noGround[i];
